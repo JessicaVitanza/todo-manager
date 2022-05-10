@@ -9,15 +9,21 @@
 </head>
 <body>
   <h1>ToDo List</h1>
-  
+
+  <div>
+  <button onclick="orderByName()" id="name-order-btn">ORDINA PER NOME</button>
+  <button id="date-order-btn">ORDINA PER DATA</button>
+  <button id="priority-order-btn">ORDINA PER PRIORITA'</button>
+  </div>
+
+  <h2>Da Fare</h2>
   <div id="todo-list-container"></div>
 
 
-
-
+  <h2>Fatti</h2>
   <div id="done-container"></div>
-
+  
 </body>
 <script src="./model.js"></script>
-<script src="./newtodo.js"></script>
+<script src="./script.js"></script>
 </html>
