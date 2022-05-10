@@ -195,7 +195,7 @@ tagContainer.appendChild(tagSpan);
 //      `
      
 //      const doneContainer = document.getElementById('done-container');
-//      doneContainer.innerHTML = ' ';
+//      doneContainer.innerHTML = '';
      
 //      for (let i = 0; i < doneList.length; i++) {
 //           const todo = doneList[i];
@@ -269,3 +269,33 @@ function compareByDate(todo1, todo2) {
 
 const dateButton = document.getElementsByTagName('date-order-btn');
 dateButton.onclick = orderByDate;
+
+
+function orderByPriority() {
+     toDoList.sort(compareByPriority);
+     displayToDoWithTemplate(todoTemplate, "todo-list-container", toDoList);
+     doneList.sort(compareByPriority);  
+     displayToDoWithTemplate(doneTemplate, "done-container", doneList);     
+}
+
+function compareByPriority(todo1, todo2) {
+ return todo2.priority.order - todo1.priority.order;
+}
+
+function logToConsole(event) {
+ console.log(event);
+}
+
+function changeButton(button) {
+ button.style.backgroundColor = 'red';
+}
+
+function removeButtonColor(event) {
+ event.target.style.backgroundColor = '';
+}
+
+const priorityButton = document.getElementById('priority-order-btn');
+priorityButton.addEventListener('click', orderByPriority);
+priorityButton.addEventListener('click', logToConsole);
+priorityButton.addEventListener('mouseenter', () => changeButton(priorityButton));
+priorityButton.addEventListener('mouseleave', removeButtonColor);
